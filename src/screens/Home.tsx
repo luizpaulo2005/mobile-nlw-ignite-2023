@@ -26,7 +26,7 @@ export function Home(){
                 <HabitDay key={date.toISOString()}/>
             )))}
             { ammountOfDaysToFill > 0 && Array.from({length: ammountOfDaysToFill}).map((_, index) =>(
-                <View className="bg-zinc-900 rounded-lg border-2 m-1 border-zinc-800 opacity-40"
+                <View key={index} className="bg-zinc-900 rounded-lg border-2 m-1 border-zinc-800 opacity-40"
                 style={{width: day_size, height: day_size}}
                 />
             ))}
