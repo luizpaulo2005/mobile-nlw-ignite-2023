@@ -1,10 +1,10 @@
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, ScrollView, Alert } from "react-native";
 import { HabitDay, day_size } from "../components/HabitDay";
 import { Header } from "../components/Header";
 import {generateDatesFromYearBeginning} from "../utils/generate-dates-from-year-beginning";
 import { api } from "../lib/axios"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Loading } from "../components/Loading";
 import dayjs from "dayjs";
 
@@ -39,9 +39,9 @@ export function Home(){
         }
     }
 
-    useEffect(()=> {
+    useFocusEffect(useCallback(()=> {
         fetchData();
-    }, [])
+    }, []))
 
 
     if(loading){
